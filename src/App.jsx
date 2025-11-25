@@ -7,7 +7,7 @@ const STORAGE_KEY = "day-notes";
 
 function getTodayISO() {
   const today = new Date();
-  return today.toISOString().split("T")[0]; // "YYYY-MM-DD"
+  return today.toISOString().split("T")[0];
 }
 
 function loadNotesFromStorage() {
@@ -44,8 +44,6 @@ export default function App() {
   useEffect(() => {
     setNotes((prev) => {
       const updated = { ...prev, [selectedDate]: currentNote };
-
-      // если поле пустое – удалим запись, чтобы не засорять список
       if (!currentNote.trim()) {
         delete updated[selectedDate];
       }
@@ -53,7 +51,6 @@ export default function App() {
       saveNotesToStorage(updated);
       return updated;
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentNote, selectedDate]);
 
   const handleDateChange = (newDate) => {
@@ -81,10 +78,6 @@ export default function App() {
           <NoteList notes={notes} onSelectDate={setSelectedDate} />
         </div>
       </div>
-
-      <footer className="app-footer">
-        React-контрольная: компоненты, состояние, события, localStorage.
-      </footer>
     </div>
   );
 }

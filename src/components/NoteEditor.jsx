@@ -13,9 +13,6 @@ export default function NoteEditor({ value, onChange }) {
         onChange={handleTextChange}
         rows={8}
       />
-      <p className="hint">
-        Заметки автоматически сохраняются в браузере (localStorage).
-      </p>
     </section>
   );
 }
