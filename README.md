@@ -15,3 +15,5 @@
 - `src/components/NoteEditor.jsx` — редактор заметки
 - `src/components/NoteList.jsx` — список дней с заметками
 - `src/index.css` — стили приложения
+
+![alt text](image.png)
